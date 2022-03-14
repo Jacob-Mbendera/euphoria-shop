@@ -7,7 +7,6 @@ const HomePage = (props) =>{
         return(
 
             <div className="homepage">
-                    <h1>Jacob</h1>
                 <Directory/>
             </div>
         )
