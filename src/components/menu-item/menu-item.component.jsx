@@ -4,7 +4,8 @@ import './menu-item.styles.scss'
 
 
 const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
-    <div className={`${size} menu-item`} onClick={ () => history.push(`${match.url}${linkUrl}`)} > //Dont leave spacces between Urls
+    <div className={`${size} menu-item`} onClick={ () => history.push(`${match.url}${linkUrl}`)} > 
+    {/* Dont leave spacces between Urls */}
 
         <div 
             className='background-image'  
