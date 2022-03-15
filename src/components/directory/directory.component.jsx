@@ -1,6 +1,6 @@
 import React from "react";
 import './directory.styles.scss';
-import MenuItem from "../menu-item/menu-item.component";
+import CategoryItem from "../category/category-item.component";
 
 class Directory extends React.Component{
     constructor(){
@@ -9,7 +9,7 @@ class Directory extends React.Component{
 
         this.state = {
 
-            sections: [
+            categories: [
 
                 {
                     title:'Hats',
@@ -51,10 +51,10 @@ class Directory extends React.Component{
     render(){
 
         return(
-            <div className="directory-menu">
+            <div className="categories-container">
 
-                {this.state.sections.map(({id, ...othersectionprops}) =>(
-                    <MenuItem key={id} {...othersectionprops} /> //  {...othersectionprops} = title={title} imageUrl={imageUrl} size={size}
+                {this.state.categories.map(({id, ...othersectionprops}) =>(
+                    <CategoryItem key={id} {...othersectionprops} /> //  {...othersectionprops} = title={title} imageUrl={imageUrl} size={size}
                 ))}
 
             </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import './menu-item.styles.scss'
+import './category-item.styles.scss'
 
 
-const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
+const CategoryItem = ({title, imageUrl, size, history, linkUrl, match}) => (
     <div className={`${size} menu-item`} onClick={ () => history.push(`${match.url}${linkUrl}`)} > 
     {/* Dont leave spacces between Urls */}
 
@@ -24,4 +24,4 @@ const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) => (
      </div>
 )
 
-export default withRouter(MenuItem); //WithRouter() enables us to have access to history, match and other props
+export default withRouter(CategoryItem); //WithRouter() enables us to have access to history, match and other props
