@@ -51,7 +51,7 @@ class Directory extends React.Component{
     render(){
 
         return(
-            <div className="categories-container">
+            <div className="directory-container">
 
                 {this.state.categories.map(({id, ...othersectionprops}) =>(
                     <CategoryItem key={id} {...othersectionprops} /> //  {...othersectionprops} = title={title} imageUrl={imageUrl} size={size}
