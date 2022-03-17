@@ -16,6 +16,7 @@ function App() {
 
             <Route index element={<HomePage/>}/>
             <Route path='shop' element={<ShopPage/>}/>
+            <Route path='sign-in' element={<SignInAndSignUpPage/>}/>
             
          </Route>
          
