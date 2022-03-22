@@ -1,7 +1,8 @@
 import React from "react";
 import './sign-in-sign-up.scss';
-import SignIn from "../../components/sign-in/sign-in.component";
 import { signInWithGooglePopop , createUserDocumentFromAuth} from "../../utilities/firebase/firebase.utilities";
+import SignUpForm from "../../sign-up-form/sign-up-form.component";
+import Button from "../../components/button/button.component";
 
 
 
@@ -17,10 +18,14 @@ const SignInAndSignUpPage = () => {
         const userDocRef = createUserDocumentFromAuth(user); 
     } 
 
-    return(<div className="sign-in-and-sign-up">
+    return(
+    <div className="sign-in-and-sign-up">
        {/* <SignIn/> */}
 
+        <h3>Sign IN</h3>
        <button onClick={logGoogleUser}> Sign In Google Popup </button>
+
+       <SignUpForm/>
     </div>
     )
 }
