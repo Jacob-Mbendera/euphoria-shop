@@ -1,12 +1,13 @@
 import React from "react";
-import './sign-in-sign-up.scss';
+import './authentication.styles.scss';
 import { signInWithGooglePopop , createUserDocumentFromAuth} from "../../utilities/firebase/firebase.utilities";
 import SignUpForm from "../../sign-up-form/sign-up-form.component";
-import Button from "../../components/button/button.component";
+import SignInForm from "../sign-in-form/sign-in-form.component";
 
 
 
-const SignInAndSignUpPage = () => {
+
+const Authentication = () => {
 
     const logGoogleUser = async () =>{
 
@@ -19,12 +20,8 @@ const SignInAndSignUpPage = () => {
     } 
 
     return(
-    <div className="sign-in-and-sign-up">
-       {/* <SignIn/> */}
-
-        <h3>Sign IN</h3>
-       <button onClick={logGoogleUser}> Sign In Google Popup </button>
-
+    <div className="authentication-container">
+       <SignInForm/>
        <SignUpForm/>
     </div>
     )
@@ -32,4 +29,4 @@ const SignInAndSignUpPage = () => {
 
 
 
-export default SignInAndSignUpPage;
+export default Authentication;

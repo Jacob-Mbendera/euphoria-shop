@@ -5,7 +5,7 @@ import './App.css';
 import HomePage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component';
 import Navigation from './pages/navigation/navigation.component';
-import SignInAndSignUpPage from './pages/sign-in-sign-up/sign-in-sign-up.component';
+import Authentication from './pages/authentication/authentication.component';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
 
             <Route index element={<HomePage/>}/>
             <Route path='shop' element={<ShopPage/>}/>
-            <Route path='sign-in' element={<SignInAndSignUpPage/>}/>
+            <Route path='auth' element={<Authentication/>}/>
             
          </Route>
          
