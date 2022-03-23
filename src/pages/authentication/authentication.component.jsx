@@ -1,7 +1,7 @@
 import React from "react";
 import './authentication.styles.scss';
-import { signInWithGooglePopop , createUserDocumentFromAuth} from "../../utilities/firebase/firebase.utilities";
-import SignUpForm from "../../sign-up-form/sign-up-form.component";
+import { signInWithGooglePopop, createUserDocumentFromAuth } from "../../utilities/firebase/firebase.utilities";
+import SignUpForm from "../sign-up-form/sign-up-form.component";
 import SignInForm from "../sign-in-form/sign-in-form.component";
 
 

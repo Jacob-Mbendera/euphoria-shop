@@ -1,9 +1,9 @@
 import { async } from "@firebase/util";
 import { useState } from "react";
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../utilities/firebase/firebase.utilities";
-import FormInput from "../components/form-input/form-input.component";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utilities/firebase/firebase.utilities";
+import FormInput from "../../components/form-input/form-input.component";
 import './sign-up-form.scss';
-import Button from "../components/button/button.component";
+import Button from "../../components/button/button.component";
 
 
 const defaultFormFields = {
