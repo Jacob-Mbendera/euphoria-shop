@@ -2,10 +2,8 @@ import React from "react";
 import './sign-in-form.styles.scss';
 import FormInput from "../../components/form-input/form-input.component";
 import Button from "../../components/button/button.component";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { signInWithGooglePopop, createUserDocumentFromAuth, signInUserWithEmailAndPassword } from "../../utilities/firebase/firebase.utilities";
-
-import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
     email: '',
@@ -19,9 +17,6 @@ const SignInForm = () =>{
 
     //console.log(formFields);
     
-    //1. setting currentUser in the context, i.e instantiating the setCurrentUser() method
-    const {setCurrentUser} = useContext(UserContext);
-
     const resetFormFields = () =>{
         setFormFields(defaultFormFields);
     }
@@ -29,10 +24,7 @@ const SignInForm = () =>{
     
     const logInGoogleUser = async () =>{
 
-        const {user}  = await signInWithGooglePopop();
-        setCurrentUser(user);
-        
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopop();
         
     }
 
@@ -44,10 +36,7 @@ const SignInForm = () =>{
 
         try{
             const {user} = await signInUserWithEmailAndPassword(email, password);
-            //console.log(user);
-
-            //2. setting the user after signing in.
-            setCurrentUser(user);
+            // console.log(user);
 
             resetFormFields();
 

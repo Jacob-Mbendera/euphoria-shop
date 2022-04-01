@@ -2,7 +2,17 @@
 import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
-import {getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider,createUserWithEmailAndPassword, signInWithEmailAndPassword, FacebookAuthProvider, signOut} from 'firebase/auth';
+import {
+  getAuth, 
+  signInWithRedirect,
+   signInWithPopup,
+   GoogleAuthProvider,
+   createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, 
+    FacebookAuthProvider,
+     signOut,
+     onAuthStateChanged
+    } from 'firebase/auth';
 import {getFirestore, doc, getDoc, setDoc} from 'firebase/firestore';
                                                             
 
@@ -90,3 +100,7 @@ export const signInUserWithEmailAndPassword = async (email, password) =>{
 }
 
 export const signOutUser = async () => await signOut(auth); 
+
+//This is an open listener , FOR AY CHANGE
+export const onAuthStateChangedLister = (callback) => 
+  onAuthStateChanged(auth, callback);
