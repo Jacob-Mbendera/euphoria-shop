@@ -1,6 +1,6 @@
 import React from "react";
 import './directory.styles.scss';
-import CategoryItem from "../category/category-item.component";
+import DirectoryItem from "../directory-item/directory-item.component";
 
 class Directory extends React.Component{
     constructor(){
@@ -54,7 +54,7 @@ class Directory extends React.Component{
             <div className="directory-container">
 
                 {this.state.categories.map(({id, ...othersectionprops}) =>(
-                    <CategoryItem key={id} {...othersectionprops} /> //  {...othersectionprops} = title={title} imageUrl={imageUrl} size={size}
+                    <DirectoryItem key={id} {...othersectionprops} /> //  {...othersectionprops} = title={title} imageUrl={imageUrl} size={size}
                 ))}
 
             </div>

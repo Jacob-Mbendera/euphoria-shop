@@ -13,7 +13,7 @@ import {
      signOut,
      onAuthStateChanged
     } from 'firebase/auth';
-import {getFirestore, doc, getDoc, setDoc} from 'firebase/firestore';
+import {getFirestore, doc, getDoc, setDoc, collection,writeBatch, query, getDocs} from 'firebase/firestore';
                                                             
 
 
@@ -47,6 +47,7 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth,  googlePr
 
 
 const db = getFirestore();
+
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation={}) =>{
 
 
@@ -104,3 +105,65 @@ export const signOutUser = async () => await signOut(auth);
 //This is an open listener , FOR AY CHANGE
 export const onAuthStateChangedLister = (callback) => 
   onAuthStateChanged(auth, callback);
+
+  //adding shop documents/data to firebase
+
+  export const addCollectionDocuments = async (collectionKey, objectToAdd) =>{
+      const collectionRef = collection(db, collectionKey);
+      const batch = writeBatch(db);
+      
+      //creating a batch
+
+      objectToAdd.forEach( (object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+      
+        //creating a new document Ref for each object e.g hats and its object etc
+        batch.set(docRef,object);
+      })
+
+      await batch.commit();
+      console.log('Done!');
+  }
+
+  //Getting Data from Firestore.
+  export  const getCategoriesAndDocument = async () => {
+    const collectionRef = collection(db, 'categories');
+    
+    //This give me some object that I can get a snapshot from
+    const q = query(collectionRef);
+
+    //getDocs() fetches document snapshots we want
+    const querySnapshot = await getDocs(q);
+
+    //gives us an array of all  the individual documents inside, snapshots == data itself
+    const categoryMap = querySnapshot.docs.reduce( (accumulator, docSnapshot) => {
+      const {title, items} = docSnapshot.data();
+      accumulator[title.toLowerCase()] = items;
+      return accumulator
+    }, {} )
+
+    return categoryMap;
+  }
+
+//.reduce() will  give us the structure of our data the way we want it i.e. 
+    /* hats:
+        {
+          title: 'Hats',
+          items: [
+            {
+              id: 1,
+              name: 'Brown Brim',
+              imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
+              price: 25,
+            },
+        sneakers:
+        {
+          title: 'Hats',
+          items: [
+            {
+              id: 1,
+              name: 'Brown Brim',
+              imageUrl: 'https://i.ibb.co/ZYW3VTp/brown-brim.png',
+              price: 25,
+            },
+        */
