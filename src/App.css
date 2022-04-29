@@ -1,6 +1,17 @@
 body {
-  font-family: "Open Sans";
-  padding: 20px 60px;
+
+  margin: 0;
+   font-family: "Fredoka";
+   -webkit-font-smoothig: intialiased;
+   -moz-osx-font-smoothing: grayscale;
+  padding: 20px 40px;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
 }
 
 .App {
@@ -40,4 +51,14 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+* {
+  box-sizing: border-box;
 }

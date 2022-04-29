@@ -9,6 +9,9 @@ import Authentication from './pages/authentication/authentication.component';
 import Shop from './components/shop/shop.component';
 import Checkout from './pages/checkout/checkout.component';
 
+
+import { GlobalStyle } from './global.styles.js';
+
 function App() {
   return (
     <div>
