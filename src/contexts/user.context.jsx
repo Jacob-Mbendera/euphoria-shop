@@ -47,6 +47,7 @@ const userReducer = (state, action) =>{
 export const UserProvider = ({ children }) => {
     /*
     //Implementing useRedducer state management
+    //currentUser is already included in the INITIAL_STATE,  we just need to setCurrentUser
     const [{currentUser} , dispatch ] = useReducer(userReducer, INITIAL_STATE);
     console.log(currentUser);
     //const {currentUser} = state;
