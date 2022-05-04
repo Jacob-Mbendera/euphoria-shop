@@ -9,25 +9,27 @@ import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
 
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {store} from './store/store'
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-
+    <Provider store={store}>
     <BrowserRouter>
 
         
-        <UserProvider>
+        {/* <UserProvider> No longer using UserProvider; using redux for  state management */}
             <CategoriesProvider>
               <CartProvider>
               <App />
               </CartProvider>
             </CategoriesProvider>
-        </UserProvider>
-        
+        {/* </UserProvider> */}
           
     </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

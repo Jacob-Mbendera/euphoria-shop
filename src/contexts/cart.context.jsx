@@ -1,5 +1,6 @@
 import { type } from "@testing-library/user-event/dist/type";
 import { createContext, useState, useEffect, useReducer } from "react";
+import { createAction } from "../utilities/reducer/reducer.utils";
 
 
 const addCartItem = (cartItems, productToAdd) => {
@@ -82,7 +83,7 @@ const cartReducer = (state, action) => {
         case  CART_ACTION_TYPES.SET_CART_ITEMS:
             return{
                 ...state,
-                ...payload,
+                ...payload, ///multiple mayload hence ...spreading them
             }
         case CART_ACTION_TYPES.SET_IS_CART_OPEN:
             return{
@@ -105,7 +106,7 @@ export const CartProvider = ( {children} ) => {
 
         const newCartTotal = cartItems.reduce( (cartTotal, cartItem) => cartTotal + cartItem.price * cartItem.quantity, 0);
 
-        dispatch({type: CART_ACTION_TYPES.SET_CART_ITEMS, payload: {cartItems: newCartItems, cartCount: newcartCount, cartTotal: newCartTotal}});
+        dispatch(createAction(CART_ACTION_TYPES.SET_CART_ITEMS, {cartItems: newCartItems, cartCount: newcartCount, cartTotal: newCartTotal}));
 
     }
 
@@ -127,7 +128,7 @@ export const CartProvider = ( {children} ) => {
 
 
     const setIsCartOpen = (bool) =>{
-        dispatch({type: CART_ACTION_TYPES.SET_IS_CART_OPEN, payload: bool});
+        dispatch(createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool));
     }
 
 

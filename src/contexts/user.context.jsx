@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useReducer } from "react";
 import { onAuthStateChangedLister , createUserDocumentFromAuth } from "../utilities/firebase/firebase.utilities";
-
+import { USER_ACTION_TYPES } from "../store/user/user.actiontypes";
 
 //view this as the actual value you want to access
 export const UserContext = createContext({
@@ -10,12 +10,6 @@ export const UserContext = createContext({
     
 });
 
-/*
-
-//WHEN WE WANT TO USE useReducer as StateManagement instead of useState 
-export const USER_ACTION_TYPES = {
-    SET_CURRENT_USER : 'SET_CURRENT_USER'
-}
 
 
 const INITIAL_STATE  =  {
@@ -42,10 +36,10 @@ const userReducer = (state, action) =>{
 
 }
 
-*/
+
 
 export const UserProvider = ({ children }) => {
-    /*
+    
     //Implementing useRedducer state management
     //currentUser is already included in the INITIAL_STATE,  we just need to setCurrentUser
     const [{currentUser} , dispatch ] = useReducer(userReducer, INITIAL_STATE);
@@ -55,26 +49,14 @@ export const UserProvider = ({ children }) => {
     const setCurrentUser = (user) => {
         dispatch({type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user});
     }
-    */
+    
    
     //Implementing useRedducer state management
-    const[currentUser, setCurrentUser] = useState(null);
+    //const[currentUser, setCurrentUser] = useState(null);
 
     const value = {currentUser, setCurrentUser};
 
-    useEffect( () => {
-
-        const unsubsccribe = onAuthStateChangedLister((user) =>{
-
-             console.log(user);
-            if(user){
-                createUserDocumentFromAuth(user);
-            }
-            setCurrentUser(user);
-        });
-        return unsubsccribe;
-
-    }, [] ); //empty dependecy array
+    
 
     //This provider is allowing any of its child components e.g <App /> to access the values e.g user profile(emails,names etc) inside the useState
     return <UserContext.Provider value={value} > {children} </UserContext.Provider> 

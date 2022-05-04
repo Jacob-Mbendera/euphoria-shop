@@ -9,12 +9,17 @@ import ShoppingCartIcon from "../../components/cart-icon/cart-icon.component";
 import { signOutUser } from "../../utilities/firebase/firebase.utilities";
 import Cart from "../../components/Cart/cart.component";
 import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 
 const Navigation = () => {
     //instantiatig currentUser, setCurrentUser
-    const {currentUser} = useContext(UserContext);
+    //const {currentUser} = useContext(UserContext);
     // console.log(currentUser);
+
+    const currentUser = useSelector(selectCurrentUser);
+    console.log(currentUser);
 
     const{isCartOpen} = useContext(CartContext);
 
