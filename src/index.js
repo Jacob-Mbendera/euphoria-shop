@@ -21,11 +21,11 @@ ReactDOM.render(
 
         
         {/* <UserProvider> No longer using UserProvider; using redux for  state management */}
-            <CategoriesProvider>
+            {/* <CategoriesProvider> */}
               <CartProvider>
               <App />
               </CartProvider>
-            </CategoriesProvider>
+            {/* </CategoriesProvider> */}
         {/* </UserProvider> */}
           
     </BrowserRouter>
