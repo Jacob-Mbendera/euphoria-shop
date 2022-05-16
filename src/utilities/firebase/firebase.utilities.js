@@ -135,7 +135,7 @@ export const onAuthStateChangedLister = (callback) =>
     //getDocs() fetches document snapshots we want
     const querySnapshot = await getDocs(q);
 
-    //gives us an array of all  the individual documents inside, snapshots == data itself
+    /*//gives us an array of all  the individual documents inside, snapshots == data itself
     const categoryMap = querySnapshot.docs.reduce( (accumulator, docSnapshot) => {
       const {title, items} = docSnapshot.data();
       accumulator[title.toLowerCase()] = items;
@@ -143,6 +143,9 @@ export const onAuthStateChangedLister = (callback) =>
     }, {} )
 
     return categoryMap;
+    */
+
+    return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
   }
 
 //.reduce() will  give us the structure of our data the way we want it i.e. 

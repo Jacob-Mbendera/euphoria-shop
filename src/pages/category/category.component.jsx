@@ -9,8 +9,8 @@ import { selectCategoriesMap } from '../../store/categories/categories.selector'
 
 const Category = () => {
 
-
-    const {category} = useParams();
+    //console.log('render/re-rending categories func component');
+    const {category} = useParams(); //we are using param i.e matching path in browser url 
 
     //const {categoriesMap} = useContext(CategoriesContext);
     const categoriesMap = useSelector(selectCategoriesMap);
@@ -18,7 +18,7 @@ const Category = () => {
     const [products, setProducts] = useState(categoriesMap[category]);
 
     useEffect(() =>{
-
+        //console.log('useEffect Triggered');
         setProducts(categoriesMap[category]);
 
 
