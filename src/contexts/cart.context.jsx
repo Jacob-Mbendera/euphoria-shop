@@ -83,7 +83,7 @@ const cartReducer = (state, action) => {
         case  CART_ACTION_TYPES.SET_CART_ITEMS:
             return{
                 ...state,
-                ...payload, ///multiple mayload hence ...spreading them
+                ...payload, ///multiple payload hence ...spreading them
             }
         case CART_ACTION_TYPES.SET_IS_CART_OPEN:
             return{

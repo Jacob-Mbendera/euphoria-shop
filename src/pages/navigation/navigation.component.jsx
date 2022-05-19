@@ -11,17 +11,19 @@ import Cart from "../../components/Cart/cart.component";
 import { CartContext } from "../../contexts/cart.context";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 
-
+  
 const Navigation = () => {
     //instantiatig currentUser, setCurrentUser
     //const {currentUser} = useContext(UserContext);
     // console.log(currentUser);
 
     const currentUser = useSelector(selectCurrentUser);
-    console.log(currentUser);
+    //console.log(currentUser);
 
-    const{isCartOpen} = useContext(CartContext);
+    //const{isCartOpen} = useContext(CartContext);
+    const isCartOpen = useSelector(selectIsCartOpen);
 
     return (
         <Fragment>

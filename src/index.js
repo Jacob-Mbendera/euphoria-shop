@@ -18,16 +18,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter>
-
-        
-        {/* <UserProvider> No longer using UserProvider; using redux for  state management */}
-            {/* <CategoriesProvider> */}
-              <CartProvider>
-              <App />
-              </CartProvider>
-            {/* </CategoriesProvider> */}
-        {/* </UserProvider> */}
-          
+        <App />
     </BrowserRouter>
     </Provider>
   </React.StrictMode>,

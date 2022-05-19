@@ -3,13 +3,21 @@ import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 
 import './cart-icon.styles.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartCount, selectIsCartOpen } from '../../store/cart/cart.selector';
+import { setIsCartOpen } from '../../store/cart/cart.action';
 
 
 const ShoppingCartIcon = () =>{
 
-    const {isCartOpen, setIsCartOpen, cartCount} = useContext(CartContext);
+    const dispatch = useDispatch();
 
-    const toggleCartIcon = () => setIsCartOpen(!isCartOpen); //reverse whatever state isCartOpen 
+    //const {isCartOpen, setIsCartOpen, cartCount} = useContext(CartContext);
+    const isCartOpen = useSelector(selectIsCartOpen);
+    const cartCount =useSelector(selectCartCount);
+
+
+    const toggleCartIcon = () => dispatch(setIsCartOpen(!isCartOpen)); //reverse whatever state isCartOpen 
 
     return(
         <div className='cart-icon-container'>
