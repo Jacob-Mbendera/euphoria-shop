@@ -11,15 +11,18 @@ import { CartProvider } from './contexts/cart.context';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import {store} from './store/store'
-
+import { PersistGate } from 'redux-persist/integration/react';
+import {persistor} from "./store/store"
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+        <PersistGate persistor={persistor}>
+          <BrowserRouter>
+              <App />
+          </BrowserRouter>
+        </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
