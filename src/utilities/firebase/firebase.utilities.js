@@ -126,7 +126,7 @@ export const onAuthStateChangedLister = (callback) =>
   }
 
   //Getting Data from Firestore.
-  export  const getCategoriesAndDocument = async () => {
+  export  const getCategoriesAndDocuments = async () => {
     const collectionRef = collection(db, 'categories');
     
     //This give me some object that I can get a snapshot from
