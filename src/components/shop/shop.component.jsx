@@ -4,15 +4,14 @@ import CategoriesPreview from "../../pages/categories-preview/categories-preview
 import Category from "../../pages/category/category.component";
 import './shop.styles.scss';
 import { useEffect } from "react";
-import { getCategoriesAndDocuments } from "../../utilities/firebase/firebase.utilities";
-import { fetchCategoriesAsync } from "../../store/categories/categories.action";
+import { fetchCategoriesStart } from "../../store/categories/categories.action";
 import { useDispatch } from "react-redux";
 
 const Shop = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchCategoriesAsync());
+        dispatch(fetchCategoriesStart());
     }, []);
 
     return(
