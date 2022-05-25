@@ -5,7 +5,8 @@ import { CategoriesContext } from '../../contexts/categories.context';
 import ProductCard from '../../components/product-card/product-card.components';
 
 import { useSelector } from 'react-redux';
-import { selectCategoriesMap } from '../../store/categories/categories.selector';
+import { selectCategoriesLoading, selectCategoriesMap } from '../../store/categories/categories.selector';
+import Spinner from '../../components/spinner/spinner.component';
 
 const Category = () => {
 
@@ -16,6 +17,7 @@ const Category = () => {
     const categoriesMap = useSelector(selectCategoriesMap);
 
     const [products, setProducts] = useState(categoriesMap[category]);
+    const isLoading = useSelector(selectCategoriesLoading);
 
     useEffect(() =>{
         //console.log('useEffect Triggered');
@@ -25,16 +27,19 @@ const Category = () => {
     }, [category, categoriesMap]); //whenever category or categoriesMap changes
 
     return(
-        <Fragment>  
-
-        <h2 className='category-title'>{category.toUpperCase()}</h2>
-        <div className='category-container'>
-            {   //only render products if products has value
-                products && 
-                products.map( (product) => <ProductCard key={product.id} product={product} /> )
-            }
-        </div>
-
+        <Fragment> 
+            <h2 className='category-title'>{category.toUpperCase()}</h2>
+            {
+                isLoading ? (
+                <Spinner/>
+                ) : ( <div className='category-container'>
+                        {   //only render products if products has value
+                            products && 
+                            products.map( (product) => <ProductCard key={product.id} product={product} /> )
+                        }
+                    </div> 
+                )}
+           
         </Fragment>
     )
 };

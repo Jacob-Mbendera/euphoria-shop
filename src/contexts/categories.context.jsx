@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 //import PRODUCTS from "../pages/shop/shop-data.json";
 import SHOP_DATA from "../pages/shop/shop-data.js";
-import { addCollectionDocuments, getCategoriesAndDocument} from "../utilities/firebase/firebase.utilities"; 
+import { addCollectionDocuments, getCategoriesAndDocuments} from "../utilities/firebase/firebase.utilities"; 
 
 export const CategoriesContext = createContext({
     categoriesMap: {},
@@ -22,7 +22,7 @@ export const CategoriesProvider = ( {children} ) => {
     useEffect(() => {
 
         const getCategoriesMap = async () => {
-            const categoriesMap =  await getCategoriesAndDocument();
+            const categoriesMap =  await getCategoriesAndDocuments();
             //console.log(categoriesMap);
             setCategoriesMap(categoriesMap);
         }
