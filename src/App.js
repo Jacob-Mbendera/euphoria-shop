@@ -1,19 +1,18 @@
-import {React, useEffect} from 'react';
+import {React, lazy, Suspense, useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import './App.css';
-
-import HomePage from './pages/homepage/homepage.component.jsx';
-import ShopPage from './pages/shop/shop.component';
-import Navigation from './pages/navigation/navigation.component';
-import Authentication from './pages/authentication/authentication.component';
-import Shop from './components/shop/shop.component';
-import Checkout from './pages/checkout/checkout.component';
-
 import { onAuthStateChangedLister, createUserDocumentFromAuth } from './utilities/firebase/firebase.utilities';
 import { setCurrentUser } from './store/user/user.action';
 import { useDispatch } from 'react-redux';
-
 import { GlobalStyle } from './global.styles.js';
+import Spinner from './components/spinner/spinner.component';
+
+const Navigation = lazy(() =>import('./pages/navigation/navigation.component'));
+const HomePage = lazy( () => import('./pages/homepage/homepage.component.jsx'));
+const ShopPage = lazy( ()=> import('./pages/shop/shop.component'));
+const Shop = lazy(() => import('./components/shop/shop.component'));
+const Checkout = lazy( () => import('./pages/checkout/checkout.component'));
+const Authentication =lazy(() => import('./pages/authentication/authentication.component'));
 
 function App() {
 
@@ -36,19 +35,18 @@ function App() {
   
   return (
     <div>
-       <Routes>
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path='/' element={<Navigation/>}>
 
-         <Route path='/' element={<Navigation/>}>
-
-            <Route index element={<HomePage/>}/>
-            <Route path='shop/*' element={<Shop/>}/>
-            <Route path='auth' element={<Authentication/>}/>
-            <Route path='checkout' element={<Checkout/>}/>
-            
-         </Route>
-         
-      </Routes>
-      
+              <Route index element={<HomePage/>}/>
+              <Route path='shop/*' element={<Shop/>}/>
+              <Route path='auth' element={<Authentication/>}/>
+              <Route path='checkout' element={<Checkout/>}/>
+              
+          </Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 }

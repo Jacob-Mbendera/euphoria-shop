@@ -52,7 +52,7 @@ const Navigation = () => {
                { isCartOpen && <Cart/> }
             </div>
 
-            <Outlet />
+            <Outlet /> 
         </Fragment>
     )
 }
