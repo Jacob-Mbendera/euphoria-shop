@@ -3,4 +3,14 @@
   justify-content: space-between;
   width: 900px;
   margin: 30px auto; //makes it centered no matter how big your screen gets
+  
+  hr {
+    border-top: 4px solid rgb(9, 7, 7);
+  }
+
+  @media screen and (max-width: 800px){
+    display:block;
+    max-width: fit-content;
+    justify-content:space-evenly;
+  }
 }

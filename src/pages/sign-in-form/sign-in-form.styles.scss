@@ -3,6 +3,21 @@
   flex-direction: column;
   width: 380px;
 
+  @media screen and (max-width: 800px) {
+      margin: 10px;
+      padding-bottom: 12px;
+      width: 350px;
+      
+      h1 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-size: 80px;
+      }
+  }
+
   h2 {
     margin: 10px 0;
   }
@@ -11,4 +26,5 @@
     display: flex;
     justify-content: space-between;
   }
+
 }

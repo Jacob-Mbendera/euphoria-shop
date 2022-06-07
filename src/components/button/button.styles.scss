@@ -29,6 +29,10 @@
 
   @media screen and (max-width: 800px){
     font-size: 12px;
+    min-width: 4  0px;
+    padding: 0 25px 0 25px;
+    height: 40px;
+    line-height: 40px;
   }
 
 
@@ -40,6 +44,7 @@
       background-color: #357ae8;
       border: none;
     }
+    
   }
 
   &.inverted {
@@ -62,11 +67,11 @@
     display: block;
     margin-left: auto;
 
-
-
     &:hover {
       background-color: #262626;
       border: none;
     }
+
+    
   }
 }

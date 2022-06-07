@@ -9,12 +9,20 @@ export const PaymentFormContainer = styled.div`
   align-items: center;
   justify-content: center;  
 
+  @media screen and (max-width: 800px) {
+      font-size: 12px;
+  }
+
 `;
 
 export const FormContainer = styled.form`
 
     height: 100px;
     min-width: 500px;
+
+    @media screen and (max-width: 800px) {
+      height: 80px;
+     min-width: 340px;
     
 
 `;
