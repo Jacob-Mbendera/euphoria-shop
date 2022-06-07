@@ -27,6 +27,11 @@
     border: 1px solid black;
   }
 
+  @media screen and (max-width: 800px){
+    font-size: 12px;
+  }
+
+
   &.google-sign-in {
     background-color: #4285f4;
     color: white;

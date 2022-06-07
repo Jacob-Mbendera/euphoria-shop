@@ -1,7 +1,7 @@
 import './cart.styles.scss';
 
 import Button from '../button/button.component'; 
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import CartItem from '../cart-item/cart-item.component';
 
@@ -17,9 +17,10 @@ const Cart = () =>{
 
     const navigate = useNavigate();
 
-    const goToCheckoutPage = () => {
+    //useCallback(), make the function inside memoised,
+    const goToCheckoutPage = useCallback( () => {
         navigate('/checkout');
-    }
+    }, [navigate]);
 
     return (
         <div className='cart-dropdown-container'>

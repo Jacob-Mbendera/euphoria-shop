@@ -5,6 +5,7 @@
   height: 350px;
   align-items: center;
   position: relative;
+  
 
   img {
     width: 100%;
@@ -19,6 +20,13 @@
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px){
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
+    }
   }
 
   &:hover {
@@ -30,6 +38,21 @@
       opacity: 0.85;
       display: flex;
     }
+  }
+
+  @media screen and (max-width: 800px){
+    width: 40vw; //takes 40% of the total full view for width
+
+    &:hover {
+      img {
+        opacity: unset;
+      }
+  
+      button {
+        opacity: unset;
+      }
+    }
+
   }
 
   .footer {
