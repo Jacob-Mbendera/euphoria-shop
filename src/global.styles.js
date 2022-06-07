@@ -5,6 +5,10 @@ export const GlobalStyle = createGlobalStyle`
         body {
             font-family: "Open Sans";
             padding: 20px 60px;
+
+            @media screen and (max-width: 800px){
+                padding: 10px
+            }
         }
         
         .App {
@@ -14,6 +18,9 @@ export const GlobalStyle = createGlobalStyle`
         .App-logo {
             height: 40vmin;
             pointer-events: none;
+            
+
+           
         }
         
         @media (prefers-reduced-motion: no-preference) {
@@ -31,6 +38,8 @@ export const GlobalStyle = createGlobalStyle`
             justify-content: center;
             font-size: calc(10px + 2vmin);
             color: white;
+
+            
         }
         
         .App-link {
@@ -45,6 +54,23 @@ export const GlobalStyle = createGlobalStyle`
             transform: rotate(360deg);
             }
         }
-  
 
-`
+        code {
+            font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+              monospace;
+          }
+          
+          a {
+            text-decoration: none;
+            color: black;
+          }
+          
+          * {
+            box-sizing: border-box;
+          }
+
+
+
+          
+`;
+

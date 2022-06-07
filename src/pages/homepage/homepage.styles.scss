@@ -30,6 +30,12 @@
     margin-left: 7.5px;
   }
 
+   @media screen and (max-width: 800px){
+    height: 60px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
   .content {
     height: 90px;
     padding: 0 25px;

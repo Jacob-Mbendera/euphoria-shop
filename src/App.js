@@ -1,10 +1,10 @@
 import {React, lazy, Suspense, useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
-import './App.css';
+// import './App.css';
 import { onAuthStateChangedLister, createUserDocumentFromAuth } from './utilities/firebase/firebase.utilities';
 import { setCurrentUser } from './store/user/user.action';
 import { useDispatch } from 'react-redux';
-import { GlobalStyle } from './global.styles.js';
+import { GlobalStyle } from './global.styles';
 import Spinner from './components/spinner/spinner.component';
 
 const Navigation = lazy(() =>import('./pages/navigation/navigation.component'));
@@ -35,6 +35,7 @@ function App() {
   
   return (
     <div>
+      <GlobalStyle />
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path='/' element={<Navigation/>}>

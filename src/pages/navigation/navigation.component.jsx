@@ -30,7 +30,11 @@ const Navigation = () => {
             <div className="navigation">
                 
                 <Link to="/" className="logo-container">
-                        <Logo className="logo" />
+                        {/* <Logo className="logo" /> */}
+                        <p className="brand">
+                            {/* <span className="b"> B</span>randed  */}
+                            <span className="b">E</span>uphoria 
+                        </p>
                 </Link>
             
                 <div className="nav-links-container">
