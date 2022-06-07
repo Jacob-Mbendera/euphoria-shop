@@ -20,6 +20,10 @@
         &:last-child {
           width: 8%;
         }
+
+        @media screen and (max-width: 800px) {
+          font-size: 10px;
+        }
       }
     }
   
@@ -27,6 +31,16 @@
       margin-top: 30px;
       margin-left: auto;
       font-size: 24px;
+    }
+
+    @media screen and (max-width: 800px) {
+      width: 80%;
+      font-size: 12px;
+      min-height: 70vh;
+
+      .total {
+        font-size: 20px;
+      }
     }
   }
   
